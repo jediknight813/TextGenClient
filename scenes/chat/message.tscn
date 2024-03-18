@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7ohfc0nvantn"]
+
+[ext_resource type="Script" path="res://scripts/chat/message.gd" id="1_4suxs"]
+[ext_resource type="Script" path="res://scripts/chat/MessageText.gd" id="2_fs1uv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wm4mq"]
+
+[sub_resource type="Theme" id="Theme_bfp66"]
+MarginContainer/styles/wafew = SubResource("StyleBoxFlat_wm4mq")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8paj"]
+bg_color = Color(0.172549, 0.172549, 0.172549, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.152941, 0.152941, 0.152941, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jkti"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eghrd"]
+size = Vector2(115, 85)
+
+[node name="Message" type="MarginContainer"]
+custom_minimum_size = Vector2(600, 10)
+offset_left = 24.0
+offset_top = 6.0
+offset_right = 624.0
+offset_bottom = 73.0
+theme = SubResource("Theme_bfp66")
+script = ExtResource("1_4suxs")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q8paj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="UsernameText" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]username"
+fit_content = true
+
+[node name="MessageText" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(600, 20)
+layout_mode = 2
+text = "message"
+fit_content = true
+autowrap_mode = 2
+script = ExtResource("2_fs1uv")
+
+[node name="DeleteMessage" type="Area2D" parent="."]
+
+[node name="Button" type="Button" parent="DeleteMessage"]
+visible = false
+offset_left = 503.0
+offset_top = 8.0
+offset_right = 606.0
+offset_bottom = 55.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_7jkti")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7jkti")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7jkti")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_7jkti")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7jkti")
+text = "Delete"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeleteMessage"]
+position = Vector2(555, 33)
+shape = SubResource("RectangleShape2D_eghrd")
+
+[connection signal="mouse_entered" from="DeleteMessage" to="." method="_on_delete_message_mouse_entered"]
+[connection signal="mouse_exited" from="DeleteMessage" to="." method="_on_delete_message_mouse_exited"]
+[connection signal="pressed" from="DeleteMessage/Button" to="." method="_on_button_pressed"]

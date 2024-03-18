@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://bngc1fy2xnf7q"]
+
+[ext_resource type="PackedScene" uid="uid://b1yxeks4r81tt" path="res://scenes/player/player.tscn" id="1_du0y8"]
+[ext_resource type="Script" path="res://scenes/world/world.gd" id="1_wm5ew"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hac3b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o41t5"]
+size = Vector3(1, 0.343292, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_613qt"]
+radius = 0.001
+
+[sub_resource type="BoxMesh" id="BoxMesh_jt8e4"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_wm5ew")
+player_scene = ExtResource("1_du0y8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 0, 0, 0)
+mesh = SubResource("PlaneMesh_hac3b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.507401, 0)
+shape = SubResource("BoxShape3D_o41t5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.88174, -0.00526101, -0.471706, 0.471735, 0.00983358, 0.881685, 0, -0.999938, 0.0111525, -9.42783, 12.222, 0)
+
+[node name="Multiplayer" type="CanvasLayer" parent="."]
+
+[node name="ServerIp" type="TextEdit" parent="Multiplayer"]
+offset_left = 93.0
+offset_top = 226.0
+offset_right = 850.0
+offset_bottom = 322.0
+text = "127.0.0.1"
+
+[node name="Host" type="Button" parent="Multiplayer"]
+offset_left = 516.0
+offset_top = 334.0
+offset_right = 851.0
+offset_bottom = 445.0
+text = "host"
+
+[node name="Join" type="Button" parent="Multiplayer"]
+offset_left = 98.0
+offset_top = 335.0
+offset_right = 437.0
+offset_bottom = 444.0
+text = "join
+"
+
+[node name="Label" type="Label" parent="Multiplayer"]
+offset_left = 103.0
+offset_top = 184.0
+offset_right = 479.0
+offset_bottom = 213.0
+text = "Server Ip"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/player/player.tscn")
+spawn_path = NodePath("..")
+
+[node name="SpawnPostion" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.91078, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0.0657824, 0)
+shape = SubResource("SphereShape3D_613qt")
+
+[node name="Enemy" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_jt8e4")
+skeleton = NodePath("../Area3D")
+
+[connection signal="pressed" from="Multiplayer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Multiplayer/Join" to="." method="_on_join_pressed"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

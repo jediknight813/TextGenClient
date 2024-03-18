@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://3mhjpshm23qr"]
+
+[ext_resource type="Script" path="res://scripts/chat/message_container.gd" id="1_uoagn"]
+[ext_resource type="Script" path="res://scripts/chat/ScrollContainer.gd" id="2_ecapj"]
+
+[sub_resource type="Theme" id="Theme_1edok"]
+
+[node name="MessageContainer" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1136.0
+offset_top = 81.0
+offset_right = -1.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_uoagn")
+
+[node name="LobbyBackground" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+offset_right = 720.0
+offset_bottom = 908.0
+mouse_filter = 1
+color = Color(0.168627, 0.168627, 0.223529, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+clip_contents = false
+layout_mode = 2
+offset_left = 26.0
+offset_top = 16.0
+offset_right = 707.0
+offset_bottom = 860.0
+size_flags_horizontal = 13
+follow_focus = true
+script = ExtResource("2_ecapj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme = SubResource("Theme_1edok")
+theme_override_constants/separation = 40
