@@ -583,11 +583,13 @@ grow_vertical = 2
 script = ExtResource("1_b41dp")
 
 [node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1925.0
 offset_bottom = 1087.0
 color = Color(0.101961, 0.101961, 0.141176, 1)
 
 [node name="LobbyBackground" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 129.0
 offset_top = 131.0
 offset_right = 1792.0
@@ -596,6 +598,7 @@ color = Color(0.168627, 0.168627, 0.223529, 1)
 
 [node name="HostGameButton" type="Button" parent="."]
 custom_minimum_size = Vector2(0, 60)
+layout_mode = 0
 offset_left = 1412.0
 offset_top = 990.0
 offset_right = 1639.0
@@ -605,6 +608,7 @@ text = "Host Game"
 
 [node name="MainMenuButton" type="Button" parent="."]
 custom_minimum_size = Vector2(0, 60)
+layout_mode = 0
 offset_left = 34.0
 offset_top = 993.0
 offset_right = 261.0
@@ -619,6 +623,7 @@ text = "Back
 
 [node name="DirectConnect" type="Button" parent="."]
 custom_minimum_size = Vector2(0, 60)
+layout_mode = 0
 offset_left = 1658.0
 offset_top = 989.0
 offset_right = 1885.0
@@ -627,6 +632,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_tbwik")
 text = "Direct Connect"
 
 [node name="LobbyText" type="Label" parent="."]
+layout_mode = 0
 offset_left = -2.0
 offset_top = 480.0
 offset_right = 1928.0
@@ -638,6 +644,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TitleText" type="Label" parent="."]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 1.0
 offset_right = 1916.0
@@ -659,6 +666,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sgyum")
 
 [node name="TitleText" type="Label" parent="DirectConnectCenterContainer/DirectConnectContainer"]
+layout_mode = 0
 offset_left = -3.0
 offset_top = 11.0
 offset_right = 599.0
@@ -671,6 +679,7 @@ vertical_alignment = 1
 
 [node name="ClosePopup" type="Button" parent="DirectConnectCenterContainer/DirectConnectContainer"]
 custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
 offset_left = 411.0
 offset_top = 508.0
 offset_right = 563.0
@@ -681,6 +690,7 @@ text = "Close
 
 [node name="JoinGame" type="Button" parent="DirectConnectCenterContainer/DirectConnectContainer"]
 custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
 offset_left = 157.0
 offset_top = 274.0
 offset_right = 464.0
@@ -723,6 +733,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sgyum")
 
 [node name="TitleText" type="Label" parent="HostGameCenterContainer/HostGameContainer"]
+layout_mode = 0
 offset_left = -3.0
 offset_top = 11.0
 offset_right = 599.0
@@ -735,6 +746,7 @@ vertical_alignment = 1
 
 [node name="ClosePopup" type="Button" parent="HostGameCenterContainer/HostGameContainer"]
 custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
 offset_left = 411.0
 offset_top = 508.0
 offset_right = 563.0
@@ -745,6 +757,7 @@ text = "Close
 
 [node name="HostGame" type="Button" parent="HostGameCenterContainer/HostGameContainer"]
 custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
 offset_left = 160.0
 offset_top = 274.0
 offset_right = 467.0
