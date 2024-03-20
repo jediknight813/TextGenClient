@@ -5,9 +5,14 @@ The client for TextGen, requires the server to be running to use.
 
 ## setup
 * start up the server https://github.com/jediknight813/TextGenServer
+
 ### first option
 * download one of the compiled released for your OS, mac and windows only currently.
+
 Mac: https://github.com/jediknight813/TextGenClient/releases/tag/1.0.0-Mac
+
 Windows: https://github.com/jediknight813/TextGenClient/releases/tag/1.0.0-Windows
+
 ### second option
+
 * open the project in godot 4 and run it.
